@@ -5,10 +5,16 @@
  */
 package controller;
 
+import java.sql.Connection;
+
 /**
  *
  * @author Geral
  */
 public class UsuarioDAO {
+    private final Connection connection;
     
+    public UsuarioDAO() throws SQLException{
+        this.connection = Conexao.getConnection();
+    }
 }
