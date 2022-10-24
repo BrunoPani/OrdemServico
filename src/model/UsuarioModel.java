@@ -10,27 +10,32 @@ package model;
  * @author Geral
  */
 public class UsuarioModel {
-    private String id;
+    private int idUser;
     private String usuario;
     private String senha;
+    private String fone;
+    private String login;
+    private String perfil;
 
     
     public UsuarioModel() {
     }
 
-    public UsuarioModel(String id, String usuario, String senha) {
-        this.id = id;
+    public UsuarioModel(int idUser, String usuario, String senha, String fone, String login, String perfil) {
+        this.idUser = idUser;
         this.usuario = usuario;
         this.senha = senha;
-    }
-    
-    
-    public String getId() {
-        return id;
+        this.fone = fone;
+        this.login = login;
+        this.perfil = perfil;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
 
     public String getUsuario() {
@@ -48,6 +53,32 @@ public class UsuarioModel {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+    public String getFone() {
+        return fone;
+    }
+
+    public void setFone(String fone) {
+        this.fone = fone;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(String perfil) {
+        this.perfil = perfil;
+    }
+        
+    
     
     
 }

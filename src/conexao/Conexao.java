@@ -5,18 +5,14 @@
  */
 package conexao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 /**
  *
  * @author Geral
  */
 public class Conexao {
-    private static final String DRIVE = "com.mysql.jbdc.Driver";
+    /*private static final String DRIVE = "com.mysql.jbdc.Driver";
     private static final String URL = "jdbc:mysql://localhost:3306/ordem_servico";
     private static final String USER = "root";
     private static final String PASS = "root";
@@ -59,6 +55,25 @@ public class Conexao {
         } catch (SQLException e) {
         e.printStackTrace(); 
        }
+    }
+    */
+    
+    public static Connection conectar(){
+        Connection conexao;
+        String driver = "com.mysql.cj.jdbc.Driver";
+        String url = "jdbc:mysql://localhost:3306/ordem_servico";
+        String user = "root";
+        String passWord = "root";
+        
+        try {
+            Class.forName(driver);
+            conexao = DriverManager.getConnection(url, user, passWord);
+            return conexao;
+            
+        } catch (ClassNotFoundException | SQLException e) {
+            System.out.println(e);
+            return null;
+        }
     }
     
 }

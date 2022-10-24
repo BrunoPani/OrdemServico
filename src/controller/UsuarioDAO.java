@@ -5,7 +5,9 @@
  */
 package controller;
 
+import conexao.Conexao;
 import java.sql.Connection;
+import java.sql.SQLException;
 
 /**
  *
@@ -15,6 +17,6 @@ public class UsuarioDAO {
     private final Connection connection;
     
     public UsuarioDAO() throws SQLException{
-        this.connection = Conexao.getConnection();
+        this.connection = Conexao.getConection();
     }
 }
