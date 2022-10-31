@@ -61,7 +61,7 @@ public class Conexao {
     public static Connection conectar(){
         Connection conexao;
         String driver = "com.mysql.cj.jdbc.Driver";
-        String url = "jdbc:mysql://localhost:3306/ordem_servico";
+        String url = "jdbc:mysql://localhost:3306/ordem_servico?useTimezone=true&serverTimezone=UTC&useSSL=false";
         String user = "root";
         String passWord = "root";
         

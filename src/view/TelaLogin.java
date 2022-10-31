@@ -27,6 +27,26 @@ public class TelaLogin extends javax.swing.JFrame {
      * Metodo responsável pela autenticação e gestão de perfil do usuário
      */
     
+    
+    private void status() {
+        try {
+            conexao = Conexao.conectar();
+            if (conexao != null) {
+                jLblStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/dbok.png")));
+            } else {
+                jLblStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/errork.png")));
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            try {
+            conexao.close();
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex);
+            }
+        }
+    }
+    
     public void logar(){
         String sql = "select * from tbusuarios where login = ? and senha = md5(?)";
         try {
@@ -42,7 +62,7 @@ public class TelaLogin extends javax.swing.JFrame {
             if (rs.next()){
                 TelaPrincipal tela = new TelaPrincipal();
                 tela.setVisible(true);
-                
+                this.dispose();
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
@@ -58,8 +78,9 @@ public class TelaLogin extends javax.swing.JFrame {
         jTextUsuario = new javax.swing.JTextField();
         jTextSenha = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
+        jLblStatus = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("Usuario:");
@@ -76,6 +97,16 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
 
+        jLblStatus.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jLblStatusAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -83,15 +114,19 @@ public class TelaLogin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(63, 63, 63)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLblStatus)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTextSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(90, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -106,7 +141,9 @@ public class TelaLogin extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jTextSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jLblStatus))
                 .addContainerGap(55, Short.MAX_VALUE))
         );
 
@@ -117,6 +154,10 @@ public class TelaLogin extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         logar();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jLblStatusAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLblStatusAncestorAdded
+        status();        
+    }//GEN-LAST:event_jLblStatusAncestorAdded
 
     /**
      * @param args the command line arguments
@@ -157,6 +198,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLblStatus;
     private javax.swing.JPasswordField jTextSenha;
     private javax.swing.JTextField jTextUsuario;
     // End of variables declaration//GEN-END:variables
