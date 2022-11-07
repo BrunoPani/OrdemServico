@@ -61,6 +61,7 @@ public class TelaLogin extends javax.swing.JFrame {
             
             if (rs.next()){
                 TelaPrincipal tela = new TelaPrincipal();
+                TelaPrincipal.jLblUsuario.setText(rs.getString(2));
                 tela.setVisible(true);
                 this.dispose();
             }
