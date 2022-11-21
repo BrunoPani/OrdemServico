@@ -85,6 +85,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuClientes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         jMenuClientes.setText("Cadastro de Clientes");
+        jMenuClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuClientesActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuClientes);
 
         jMenuOS.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
@@ -174,6 +179,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         DateFormat formatador = DateFormat.getDateInstance(DateFormat.SHORT);
         jLblData.setText(formatador.format(data));
     }//GEN-LAST:event_formWindowActivated
+
+    private void jMenuClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuClientesActionPerformed
+        TelaCliente cliente = new TelaCliente();
+        cliente.setVisible(true);
+        jDesktop.add(cliente);
+    }//GEN-LAST:event_jMenuClientesActionPerformed
 
     /**
      * @param args the command line arguments
