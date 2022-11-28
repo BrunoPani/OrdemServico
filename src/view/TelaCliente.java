@@ -120,6 +120,9 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         jBtnExcluir = new javax.swing.JButton();
         jTxtFone = new javax.swing.JFormattedTextField();
 
+        setClosable(true);
+        setMaximizable(true);
+
         jTxtPesquisa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTxtPesquisaKeyReleased(evt);
