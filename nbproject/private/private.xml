@@ -3,15 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Geral/Documents/NetBeansProjects/OrdemDeServico/src/view/TelaPrincipal.java</file>
-            <file>file:/C:/Users/Geral/Documents/NetBeansProjects/OrdemDeServico/src/model/ClienteModel.java</file>
-            <file>file:/C:/Users/Geral/Documents/NetBeansProjects/OrdemDeServico/src/conexao/Conexao.java</file>
-            <file>file:/C:/Users/Geral/Documents/NetBeansProjects/OrdemDeServico/src/view/TelaLogin.java</file>
-            <file>file:/C:/Users/Geral/Documents/NetBeansProjects/OrdemDeServico/src/view/TelaUsuario.java</file>
-            <file>file:/C:/Users/Geral/Documents/NetBeansProjects/OrdemDeServico/src/model/UsuarioModel.java</file>
-            <file>file:/C:/Users/Geral/Documents/NetBeansProjects/OrdemDeServico/src/view/TelaCliente.java</file>
-            <file>file:/C:/Users/Geral/Documents/NetBeansProjects/OrdemDeServico/src/controller/ClienteDAO.java</file>
-            <file>file:/C:/Users/Geral/Documents/NetBeansProjects/OrdemDeServico/src/controller/UsuarioDAO.java</file>
+            <file>file:/C:/Users/windows/Documents/NetBeansProjects/OrdemServico/src/view/TelaUsuario.java</file>
+            <file>file:/C:/Users/windows/Documents/NetBeansProjects/OrdemServico/src/view/TelaOs.java</file>
         </group>
     </open-files>
 </project-private>
